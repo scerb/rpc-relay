@@ -12,12 +12,16 @@ rpc_endpoints:
   primary:
     - url: "https://arbitrum-sepolia-rpc.publicnode.com"
       max_tps: 25
+      weight: 1
     - url: "https://sepolia-arb-rpc.centertopup.com"
       max_tps: 50
+      weight: 1
     - url: "https://arb-sepolia.cryptonode.id"
       max_tps: 50
+      weight: 1
     - url: "https://arb-sep.scerb.uk"
       max_tps: 50
+      weight: 1
 
   secondary:
     #- url: "https://arbitrum-sepolia-rpc.publicnode.com"
