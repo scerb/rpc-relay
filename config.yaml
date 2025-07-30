@@ -1,0 +1,76 @@
+# config.yaml
+
+cache_ttl:
+  # blockNumber updates every 0.25 s → 4 blocks/s
+  eth_blockNumber:          1     # ~4 blocks
+  eth_gasPrice:             2     # ~16 blocks
+  eth_getTransactionCount:  1     # ~32 blocks
+  eth_call:                 1     # ~4 blocks
+  #eth_getLogs:              1     # ~16 blocks
+
+rpc_endpoints:
+  primary:
+    - url: "https://arbitrum-sepolia-rpc.publicnode.com"
+      max_tps: 25
+    - url: "https://sepolia-arb-rpc.centertopup.com"
+      max_tps: 50
+    - url: "https://arb-sepolia.cryptonode.id"
+      max_tps: 50
+    - url: "https://arb-sep.scerb.uk"
+      max_tps: 50
+
+  secondary:
+    #- url: "https://arbitrum-sepolia-rpc.publicnode.com"
+      max_tps: 30
+      weight: 1
+    #- url: "https://sepolia-arb-rpc.centertopup.com"
+      max_tps: 20
+      weight: 1
+    #- url : "https://sepolia-rollup.arbitrum.io/rpc"
+      max_tps: 10
+      weight: 1
+    #- url : "https://arb-sepolia.g.alchemy.com/v2/YOUR_API_KEY"
+      max_tps: 30
+      weight: 1
+    #- url : "https://arbitrum-sepolia.public.blastapi.io"
+      max_tps: 5
+      weight: 1
+    #- url : "https://arbitrum-sepolia.rpc.thirdweb.com"
+      max_tps: 5
+      weight: 1
+    #- url : "https://arbitrums.lava.build/"
+      max_tps: 3
+      weight: 1
+    #- url : "https://endpoints.omniatech.io/v1/arbitrum/sepolia/public"
+      max_tps: 3
+      weight: 1
+    #- url : "https://arbitrum-sepolia.api.onfinality.io/public"
+      max_tps: 3
+      weight: 1
+    #- url : "https://arbitrum-sepolia.gateway.tenderly.co"
+      max_tps: 3
+      weight: 1
+    #- url : "https://go.getblock.io/c46ef5c02f9b4a09a7eedc7d68d8d5f9" #Demo token in URL; own key unlocks more 
+      max_tps: 3
+      weight: 1
+    #- url : "https://testnet-rpc.etherspot.io/v1/421614"
+      max_tps: 3
+      weight: 1
+
+
+health_monitor:
+  max_blocks_behind: 6
+  column_widths:
+    url:     45
+    status:  12
+    behind:  6
+    block:   13
+    latency: 10
+    tps:     6
+    errors:  8
+    calls:   9
+
+relay:
+  host: "0.0.0.0"
+  port: 5000
+  load_balance_latency_ms: 40

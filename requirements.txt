@@ -1,0 +1,7 @@
+flask==2.0.3
+werkzeug==2.0.3
+web3==6.0.0
+pyyaml==6.0
+rich==13.0.0
+python-dotenv==1.0.0
+gunicorn==20.1.0

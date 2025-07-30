@@ -1,0 +1,34 @@
+version: '3.7'
+
+services:
+  relay:
+    build: .
+    ports:
+      - "5000:5000"
+    # -------------------------------------------------------------------
+    # Instead of binding just one file, bind the entire host "project root"
+    # into /app in the container. This ensures that ANY edit you make to
+    # ./config.yaml (or any other file in the repo) is immediately visible
+    # under /app/ inside the container.
+    #
+    # If you only bind-mount config.yaml, sometimes Docker can “cache” an
+    # old copy. Binding the whole directory removes that ambiguity.
+    # -------------------------------------------------------------------
+    volumes:
+      - ./:/app:ro
+      - ./src/templates:/app/src/templates:ro   # (you can keep this read‐only as well)
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TERM=xterm-256color
+    restart: unless-stopped
+    network_mode: "host"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  default:
+    name: relay_network
+    driver: bridge
