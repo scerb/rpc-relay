@@ -1,3 +1,5 @@
+run with docker compose up --build for first start. then docker compose up/down
+
 JSON‑RPC Proxying
 Forwards any JSON‑RPC call to one of your upstream endpoints, preserving request/response shapes.
 
