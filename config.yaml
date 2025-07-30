@@ -73,4 +73,6 @@ health_monitor:
 relay:
   host: "0.0.0.0"
   port: 5000
-  load_balance_latency_ms: 40
+  latency_threshold_ms: 40
+  monitor_interval: 5
+  
